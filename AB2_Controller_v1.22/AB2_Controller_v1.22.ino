@@ -689,6 +689,8 @@ boolean dispenseLiquid() {
     //PC sends a token when the button is first pressed, pump activates, and checks for a stop token
     //Maybe make these two separate functions, one for the physical version, and another if there is a touch version
 void jogMode(){
+
+  boolean servoIsOn[] = {false, false, false, false};
   //jogEnable should be a toggle switch, could have the LED in series, eliminating the need for a separate LED pin
   while(digitalRead(jogEnable)){
     for(int i = 0; i < sizeof(jogPumpPins); i++){
@@ -703,12 +705,17 @@ void jogMode(){
     }
 
     for(int i = 0; i < sizeof(jogServoPins); i++) {
-      if(digitalRead(jogServoPins[i])){
+      if(digitalRead(jogServoPins[i]) && servoIsOn[i] == false){
         servoOnFull(i+1);
+        servoIsOn[i] == true;
         updateActivePumpLCD(i+1+NUMBER_OF_PUMPS, false);
+      }
+      else if(digitalRead(jogServoPins[i]) && servoIsOn[i] == true){
+        continue;
       }
       else{
         servoOff(i+1);
+        servoIsOn[i] = false;
         updateActivePumpLCD(i+1+NUMBER_OF_PUMPS, true);
       }
     }
