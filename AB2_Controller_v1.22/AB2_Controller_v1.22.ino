@@ -48,7 +48,7 @@
 #define fanTransistorPin 52 //Controls the gate of mosfet to switch on the fan
 
 //Jog mode pins
-#define jogEnable 44
+#define jogEnable 44  
 #define jogLED 45 //of questionable utiltity, LED uses power from enable pin?
 #define jogP1 34
 #define jogP2 35
@@ -704,11 +704,11 @@ void jogMode(){
 
     for(int i = 0; i < sizeof(jogServoPins); i++) {
       if(digitalRead(jogServoPins[i])){
-        servoOnFull(i+1+NUMBER_OF_PUMPS);
+        servoOnFull(i+1);
         updateActivePumpLCD(i+1+NUMBER_OF_PUMPS, false);
       }
       else{
-        servoOff(i+1+NUMBER_OF_PUMPS);
+        servoOff(i+1);
         updateActivePumpLCD(i+1+NUMBER_OF_PUMPS, true);
       }
     }
