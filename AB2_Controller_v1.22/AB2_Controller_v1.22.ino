@@ -48,18 +48,18 @@
 #define fanTransistorPin 52 //Controls the gate of mosfet to switch on the fan
 
 //Jog mode pins
-#define jogEnable 34
+#define jogEnable 44
 #define jogLED 45 //of questionable utiltity, LED uses power from enable pin?
-#define jogP1 35
-#define jogP2 36
-#define jogP3 37
-#define jogP4 38
-#define jogP5 39
-#define jogP6 40
-#define jogS1 41
-#define jogS2 42
-#define jogS3 43
-#define jogS4 44
+#define jogP1 34
+#define jogP2 35
+#define jogP3 36
+#define jogP4 37
+#define jogP5 38
+#define jogP6 39
+#define jogS1 40
+#define jogS2 41
+#define jogS3 42
+#define jogS4 43
 
 //assigning the peristaltic pump pin numbers to their systematic names
 //eg. b12 - 2nd(b) L298N board, 1st pump, 2nd input, E indicates Enable pin
